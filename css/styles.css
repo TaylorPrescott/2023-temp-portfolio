@@ -393,7 +393,7 @@ form input[type="submit"]:active {
         width: 700px;
         left: 50%;
         transform: translateX(-50%);
-        
+        border-radius: 3px;
     }
 }
 
@@ -449,16 +449,19 @@ form input[type="submit"]:active {
     .one, .four {
         width: 150px;
         height: 150px;
+        opacity: 0.7;
     }
 
     .two, .five {
         width: 100px;
         height: 100px;
+        opacity: 0.5;
     }
 
     .three, .six {
         width: 50px;
         height: 50px;
+        opacity: 0.4;
     }
 
     .one {
@@ -511,6 +514,7 @@ form input[type="submit"]:active {
         left: -335px;
         background-color: var(--light-teal);
         border-radius: 0 50px 0 50px;
+        opacity: 0.3;
     }
 
     .bar-two {
@@ -519,5 +523,6 @@ form input[type="submit"]:active {
         right: -325px;
         background-color: var(--teal);
         border-radius: 50px 0 50px 0;
+        opacity: 0.3;
     }
 }
