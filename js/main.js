@@ -25,7 +25,12 @@ const model = {
             demoURL: "http://ccs.com",
             githubURL: "https://github.com"
         }
-    ]
+    ],
+    formData: {
+        name: "",
+        email: "",
+        msg: ""
+    }
 };
 
 
@@ -72,10 +77,74 @@ const view = {
     }
 };
 
+const formView = {
+    init() {
+        this.form = document.getElementsByTagName("form")[0];
+        this.form.addEventListener("submit", e => {
+            e.preventDefault();
+            controller.setFormData(this.form.children[1].value, this.form.children[3].value, this.form.children[5].value);
+            this.validate();
+            if (this.validate()) {
+                formView.render();
+                this.form.reset();
+            }
+        });
+    },
+
+    validate() {
+        const name = this.form.children[1].value;
+        const email = this.form.children[3].value;
+        const msg = this.form.children[5].value;
+        const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const msgRegEx = /([\.\<\>"\(\)\\'\=\|])/;
+
+        let errorEl;
+        let msgEl;
+        let errorMsg = "";
+        let valid = false;
+
+        if (document.getElementById("error-wrapper")) {
+            msgEl = document.getElementById("error-wrapper");
+            msgEl.textContent = "";
+        } else {
+            msgEl = document.createElement("p");
+            msgEl.id = "error-wrapper";
+            msgEl.classList.add("error-msg");
+        }
+
+        if (name === "" || name === undefined) {
+            errorMsg = "Must provide a name.";
+        } else if (!emailRegEx.test(email)) {
+            errorMsg = "Invalid email."
+        } else if (msgRegEx.test(msg)) {
+            errorMsg = "Invalid characters.";
+        } else if (msg === "" || msg === undefined) {
+            errorMsg = "Must contain message.";
+        } else {
+            return true;
+        }
+
+
+        msgEl.textContent = errorMsg;
+        document.getElementById("contact").children[2].appendChild(msgEl);
+        return valid;
+    },
+
+    render() {
+        const pEl = document.createElement("p");
+        for (let i = 0; i < 7; i++) {
+            this.form.children[i].classList.add("hide");
+        }
+        pEl.textContent = `Thanks, ${controller.getFormUsersName()}. A response will be sent to the email provided.`;
+        pEl.classList.add("thanks-msg");
+        this.form.append(pEl);
+    }
+};
 
 const controller = {
     init() {
         view.init();
+        formView.init();
     },
 
     getCurrentProject() {
@@ -88,6 +157,15 @@ const controller = {
 
     setCurrentProjectIndex(index) {
         model.currentProjectIndex = index;
+    },
+    getFormUsersName() {
+        return model.formData.name;
+    },
+    setFormData(name, email, msg) {
+        model.formData.name = name;
+        model.formData.email = email;
+        model.formData.msg = msg;
     }
+
 };
 controller.init();

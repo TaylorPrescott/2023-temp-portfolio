@@ -55,7 +55,7 @@ a:active {
 }
 
 .wrapper {
-    margin: 20px 0;
+    margin: 110px 0;
     padding: 10px;
 }
 
@@ -244,25 +244,28 @@ header h1 {
 }
 
 form {
+    position: relative;
     display: block;
-    height: 330px;
+    height: 350px;
     padding: 15px 0;
-    text-align: center;
+
     border: 5px solid rgba(23, 69, 130, 0.2);
     border-radius: 10px;
 }
 
-form * {
+form input {
     margin: 0 auto;
+    height: 20px;
+}
+
+form label {
+    margin: 5px 0;
+    text-align: center;
 }
 
 form label, form input {
     display: block;
     margin-top: 5px;
-}
-
-form input {
-    height: 20px;
 }
 
 form input, form textarea {
@@ -279,14 +282,15 @@ form input:focus, form textarea:focus {
 }
 
 form textarea {
-    margin: 5px 0;
+    display: block;
+    margin: 5px auto;
 }
 
 form input[type="submit"] {
-    width: 90px;
+    width: 120px;
     height: 40px;
     border: none;
-    margin-top: 12px;
+    margin-top: 15px;
     background-color: var(--primary-blue);
     color: var(--bg-white);
     font-weight: bold;
@@ -294,6 +298,22 @@ form input[type="submit"] {
 
 form input[type="submit"]:active {
     opacity: 0.5;
+}
+
+.error-msg {
+    width: 180px;
+    bottom: 10px;
+    text-align: center;
+    color: red;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.thanks-msg {
+    margin-top: 120px;
+    text-align: center;
 }
 /*******************************************/
 
@@ -320,7 +340,7 @@ form input[type="submit"]:active {
     }
 
     form {
-        height: 360px;
+        height: 370px;
     }
 
     form input, form textarea {
@@ -524,5 +544,27 @@ form input[type="submit"]:active {
         background-color: var(--teal);
         border-radius: 50px 0 50px 0;
         opacity: 0.3;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(41, 41, 41);
+    }
+
+    #about {
+        background-color: rgb(236, 229, 229);
+    }
+
+    #projects {
+        border: 2px solid rgb(236, 229, 229);
+    }
+
+    #contact form {
+        background-color: rgb(236, 229, 229);
+    }
+
+    #contact h2 {
+        color: rgb(236, 229, 229);
     }
 }
