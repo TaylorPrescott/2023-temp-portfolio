@@ -1,16 +1,6 @@
 @font-face {
-    font-family: 'Outfit-xBold';
-    src: url('/assets/fonts/Outfit/static/Outfit-ExtraBold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Outfit-xLight';
-    src: url('/assets/fonts/Outfit/static/Outfit-ExtraLight.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Outfit-Thin';
-    src: url('/assets/fonts/Outfit/static/Outfit-Thin.ttf') format('truetype');
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/Outfit-VariableFont_wght.ttf') format('truetype');
 }
 
 :root {
@@ -35,18 +25,18 @@ body {
 }
 
 h1, h2 {
-    font-family: 'Outfit-xBold', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-weight: 800;
     color: var(--dark);
 }
 
-p, li, form label {
-    font-family: 'Outfit-xLight', sans-serif;
+p, li, form label, a {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 200;
 }
 
 a {
     text-decoration: none;
-    font-family: 'Outfit-xLight', sans-serif;
     color: var(--primary-blue);
 }
 
@@ -124,6 +114,12 @@ header h1 {
     margin-top: 20px;
 }
 
+#about p {
+    font-weight: 500;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--dark);
+}
+
 #about ul {
     margin: 25px;
     list-style-type:circle;
@@ -132,6 +128,8 @@ header h1 {
 
 #about li {
     margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 300;
 }
 /*******************************************/
 
@@ -409,6 +407,10 @@ form input[type="submit"]:active {
         z-index: 100;
     }
 
+    #about ul {
+        margin-top: 40px;
+    }
+
     #projects {
         width: 700px;
         left: 50%;
@@ -421,6 +423,7 @@ form input[type="submit"]:active {
     #about {
         position: relative;
         width: 1100px;
+        height: 575px;
         border-top: 5px solid rgba(23, 69, 130, 0.2);
         border-bottom: 5px solid rgba(23, 69, 130, 0.2);
         margin: 175px auto;
@@ -438,18 +441,26 @@ form input[type="submit"]:active {
     }
 
     #about img {
-        top: 175px;
+        top: 200px;
         left: 250px;
+        margin: 0;
     }
 
     #about p {
-        top: 320px;
+        top: 315px;
         left: 220px;
+        font-weight: 600;
     }
 
     #about ul {
-        right: 130px;
-        top: 150px;
+        right: 150px;
+        top: 157px;
+        margin: 0;
+        padding: 0;
+    }
+
+    #about li {
+        font-weight: 400;
     }
 
     .desktop-projects-circle {
@@ -549,11 +560,15 @@ form input[type="submit"]:active {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: rgb(41, 41, 41);
+        background-color: rgb(73, 70, 70);
+    }
+
+    header {
+        border-bottom: 3px solid var(--bg-white);
     }
 
     #about {
-        background-color: rgb(236, 229, 229);
+        background-color: rgb(238, 238, 238);
     }
 
     #projects {
@@ -566,5 +581,14 @@ form input[type="submit"]:active {
 
     #contact h2 {
         color: rgb(236, 229, 229);
+    }
+
+    .desktop-projects-circle {
+        border: 1px solid var(--bg-white);
+    }
+
+    .bar-one, .bar-two {
+        border: 1px solid var(--bg-white);
+        opacity: 0.5;
     }
 }
