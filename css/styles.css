@@ -49,7 +49,7 @@ a:active {
     padding: 10px;
 }
 
-/******** State / Animate Styles **********/
+/******** State / Animate **********/
 
 .hide, .desktop-projects-circle, .desktop-contact-bar {
     display: none;
@@ -65,7 +65,9 @@ header {
     position: relative;
     height: 650px;
     background: url('/assets/imgs/sm-wave.jpg');
-    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
 }
 
 nav {
@@ -85,7 +87,7 @@ nav a {
 header h1 {
     width: 80%;
     position: absolute;
-    top: 360px;
+    top: 450px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -102,6 +104,15 @@ header h1 {
     height: 550px;
     text-align: center;
     margin-bottom: 40px;
+    box-shadow: -3px 3px 15px var(--dark);
+}
+
+#projects {
+    box-shadow: -3px 3px 15px var(--dark);
+}
+
+#contact form {
+        box-shadow: -1px 3px 12px var(--dark);
 }
 
 #about h2 {
@@ -115,20 +126,28 @@ header h1 {
 }
 
 #about p {
+    width: 250px;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-bottom: 50px;
     border-bottom: 1px solid var(--dark);
 }
 
 #about ul {
     margin: 25px;
+    margin-top: 50px;
     list-style-type:circle;
     text-align: left;
 }
 
+#about li::marker {
+    margin-left: 15px !important;
+}
+
 #about li {
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 1.1em;
     font-weight: 300;
 }
 /*******************************************/
@@ -239,6 +258,7 @@ header h1 {
 
 #contact h2 {
     margin-left: 20px;
+    margin-bottom: 5px;
 }
 
 form {
@@ -357,8 +377,7 @@ form input[type="submit"]:active {
     }
 
     header h1 {
-        top: 430px;
-        
+        top: 500px;  
     }
 
     #contact {
@@ -368,6 +387,7 @@ form input[type="submit"]:active {
     #contact h2 {
         width: 423px;
         margin: 0 auto;
+        margin-bottom: 10px;
         font-size: 2rem;
     }
 
@@ -392,7 +412,7 @@ form input[type="submit"]:active {
         background-size: calc(2400px / 2.4) 667px;
         background-repeat: no-repeat;
         background-position: center;
-        background-color: rgba(23, 69, 130, 0.3);
+        background-color: rgb(100, 125, 160);
     }
 
     header h1 {
@@ -420,6 +440,11 @@ form input[type="submit"]:active {
 }
 
 @media only screen and (min-width: 1150px) {
+
+    header h1 {
+        top: 490px;
+    }
+
     #about {
         position: relative;
         width: 1100px;
@@ -454,7 +479,7 @@ form input[type="submit"]:active {
 
     #about ul {
         right: 150px;
-        top: 157px;
+        top: 225px;
         margin: 0;
         padding: 0;
     }
@@ -527,7 +552,7 @@ form input[type="submit"]:active {
 
     #contact {
         position: relative;
-        width: 470px;
+        width: 500px;
         margin-top: 200px;
     }
 
@@ -551,7 +576,7 @@ form input[type="submit"]:active {
     .bar-two {
         width: 300px;
         bottom: 170px;
-        right: -325px;
+        right: -305px;
         background-color: var(--teal);
         border-radius: 50px 0 50px 0;
         opacity: 0.3;
@@ -560,15 +585,15 @@ form input[type="submit"]:active {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: rgb(73, 70, 70);
+        background-color: rgb(37, 36, 36);
     }
 
     header {
-        border-bottom: 3px solid var(--bg-white);
+        border-bottom: 1px solid var(--bg-white);
     }
 
     #about {
-        background-color: rgb(238, 238, 238);
+        background-color: var(--bg-white);
     }
 
     #projects {
