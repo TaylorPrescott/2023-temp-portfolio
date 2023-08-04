@@ -82,9 +82,8 @@ const formView = {
         this.form = document.getElementsByTagName("form")[0];
         this.form.addEventListener("submit", e => {
             e.preventDefault();
-            controller.setFormData(this.form.children[1].value, this.form.children[3].value, this.form.children[5].value);
-            this.validate();
             if (this.validate()) {
+                controller.setFormData(this.form.children[1].value, this.form.children[3].value, this.form.children[5].value);
                 formView.render();
                 this.form.reset();
             }
@@ -130,7 +129,24 @@ const formView = {
         return valid;
     },
 
+    async send(formData) {
+        const response = await fetch("https://hellotaylor.space/priv/handler.php", {
+            method: "POST",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            redirect: "manual",
+            referrerPolicy: "no-referrer-when-downgrade",
+            body: JSON.stringify(formData)
+        });
+        return response.json();
+    },
+
     render() {
+        const formData = {...controller.getFormData()};
+        this.send(formData).then(data => console.log(data)).catch(e => console.log("Error Posting: " + e));
         const pEl = document.createElement("p");
         for (let i = 0; i < 7; i++) {
             this.form.children[i].classList.add("hide");
@@ -158,8 +174,12 @@ const controller = {
     setCurrentProjectIndex(index) {
         model.currentProjectIndex = index;
     },
+    //remove
     getFormUsersName() {
         return model.formData.name;
+    },
+    getFormData() {
+        return model.formData;
     },
     setFormData(name, email, msg) {
         model.formData.name = name;
