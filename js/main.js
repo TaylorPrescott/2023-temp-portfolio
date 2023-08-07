@@ -4,26 +4,20 @@ const model = {
         {
             info: "Multi Step Form - HTML, CSS, JavaScript",
             imgPath: "../assets/imgs/MultiStepForm.png",
-            demoURL: "http://ccs.com",
-            githubURL: "https://github.com"
+            demoURL: "https://TaylorPrescott.github.io/multi-step-form",
+            githubURL: "https://github.com/TaylorPrescott/multi-step-form"
         },
         {
-            info: "Age Calculator  - WebAsm",
-            imgPath: "../assets/imgs/Age-Calc-Project.png",
-            demoURL: "http://ccs.com",
-            githubURL: "https://github.com"
-        },
-        {
-            info: "QR Code Component  - Vanilla JS with Custom Engine",
+            info: "QR Code Component  - HTML & CSS",
             imgPath: "../assets/imgs/QR-Code-Project.png",
-            demoURL: "http://ccs.com",
-            githubURL: "https://github.com"
+            demoURL: "https://TaylorPrescott.github.io/qr-code-component",
+            githubURL: "https://github.com/TaylorPrescott/qr-code-component"
         },
         {
-            info: "Display Results Component - React, Redux, Redux Toolkit",
+            info: "Results Component - HTML, CSS, & Vanilla JS",
             imgPath: "../assets/imgs/Results-Project.png",
-            demoURL: "http://ccs.com",
-            githubURL: "https://github.com"
+            demoURL: "https://TaylorPrescott.github.io/results-summary-component",
+            githubURL: "https://github.com/TaylorPrescott/results-summary-component"
         }
     ],
     formData: {
